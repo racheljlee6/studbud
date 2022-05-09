@@ -1,0 +1,19 @@
+{
+  "name": "studbud",
+  "version": "1.0.0",
+  "description": "web application for studying",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/racheljlee6/studbud.git"
+  },
+  "author": "Rachel Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/racheljlee6/studbud/issues"
+  },
+  "homepage": "https://github.com/racheljlee6/studbud#readme"
+}
