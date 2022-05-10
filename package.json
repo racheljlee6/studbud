@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/racheljlee6/studbud/issues"
   },
-  "homepage": "https://github.com/racheljlee6/studbud#readme"
+  "homepage": "https://github.com/racheljlee6/studbud#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
