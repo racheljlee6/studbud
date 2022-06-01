@@ -1,3 +1,121 @@
 .app-container {
+    display: flex;
     background-color: #F9F9FB;
+
+    .vertical {
+        width: 240px;
+        height: 100vh;
+        //background-color: #FFFFFF;
+
+        //test
+        border-color: red;
+        border-style: double;
+        
+        #logo {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            padding: 1em 2em;
+        }
+        
+        .checkbtn {
+            font-size: 28px;
+            color: black;
+            float: left;
+            line-height: 100px;
+            margin-right: center;
+            cursor: pointer;
+            display: none;
+        }
+        #check{
+            display: none;
+        }
+
+        .nav-links {
+            .nav-item  {
+                padding: 1em 2em;
+                text-align: center;
+                &.active {
+                    //background-color: #FFD166;
+                    border-color: #FFD166;
+                }
+                // change colour when hovered over for visibility
+                &:hover {
+                    background-color: #FFEBEC;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+
+
+    //right div
+    .page-container {
+        /* Grow to fitt rest of container */
+        flex: 1;
+        border-color: green;
+        border-style: double;
+        margin: 50px 50px;
+        
+        // heading css
+        h1 {
+            color: #757575;
+            font-size: 18pt;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+    }
+
+    // added media query for responsiveness between desktop and mobile
+    // chose 480px as most mobile screen viewport is between 320 to 480 px
+    @media (max-width: 480px) {
+        display:block;
+
+        .vertical {
+            width: 100%;
+            height: 100px;
+            background-color: #F9F9FB;
+            
+            .checkbtn{
+                width: 100%;
+                text-align: center;
+                display: block;
+                position: sticky;
+            }
+            #logo {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            .nav-links{
+                position: fixed;
+                background: #FFFFFF;
+                top: 100px;
+                width: 100%;
+                height: 100vh;
+                text-align: center;
+                left: -100%;
+                transition: all .4s;
+                }
+
+            #check:checked ~ .nav-links{
+            left: 0;
+            }
+        }
+
+        .page-container {
+            //background-color: purple;
+            width: 100%;
+            height: 646px;
+            margin: 0 0;
+            padding: 20 20;
+
+            // heading css
+            h1 {
+                font-size: 16pt;
+                text-align: center;
+                padding: 5 10;
+            }
+        }
+    }
 }
+
