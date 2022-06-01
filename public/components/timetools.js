@@ -1,5 +1,6 @@
-let [sec, min] = [0, 0];
-//where default time is 00:00
+//added hour to stopwatch based on user feedback
+let [sec, min, hr] = [0, 0, 0];
+//where default time is 00:00:00
 let defaultTime = document.querySelector('.stopwatchDisplay');
 //where int is time intervals
 let int = null;
@@ -9,7 +10,7 @@ document.getElementById('startTimer').addEventListener('click', () => {
   if (int !== null) {
     clearInterval(int);
   }
-  int = setInterval(showStopwatch, 10);
+  int = setInterval(cycleStopwatch, 10);
 });
 
 document.getElementById('stopTimer').addEventListener('click', () => {
@@ -18,18 +19,25 @@ document.getElementById('stopTimer').addEventListener('click', () => {
 
 document.getElementById('resetTimer').addEventListener('click', () => {
   clearInterval(int);
-  [sec, min] = [0, 0];
-  defaultTime.innerHTML = '00 : 00';
+  [sec, min, hr] = [0, 0, 0];
+  defaultTime.innerHTML = '00 : 00 : 00';
 });
 
-function showStopwatch() {
+//cycle through time
+function cycleStopwatch() {
   sec++;
   if (sec >= 60) {
-    sec = 0;
-    min++;
+      sec = 0;
+      min++;
+      if (min >= 60) {
+          min = 0;
+          hr++;
+      }
   }
+  
+  let h = hr < 10 ? "0" + hr : hr;
   let m = min < 10 ? "0" + min : min;
   let s = sec < 10 ? "0" + sec : sec;
 
-  defaultTime.innerHTML = `${m} : ${s}`;
+  defaultTime.innerHTML = `${h} : ${m} : ${s}`;
 }
