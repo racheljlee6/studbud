@@ -1,101 +1,117 @@
 #timetools {    
     height: 100vh;
-    // //test border
-    // border-color: red;
-    // border-style: double;
 
-    #timetool1 {
-        margin: 0 0 0 30px;
-        font-size: 24pt;
-        background-color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        box-shadow: .5px 1px 2px #818181;
-    }
-
-    #timetool2 {
-        margin: 0 0 0 30px;
-        font-size: 24pt;
-        background-color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        box-shadow: .5px 1px 2px #818181;
-    }
-
-    #timerbox {
+    //stopwatch styling
+    .timetool1 {
         background-color: #FFA167;
-        margin-left: 20%;
-        margin-top: 50px;
         border-radius: 10px;
-        width: 60%;
-        height: 300px;
-        
-    }
+        margin-bottom: 30px;
 
-    .stopwatchDisplay {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 50px 0 100px 0;
-        color: #ffffff;
-        font-size: 80pt;
-    }
-
-    .buttons{
-        position: relative;
-        margin: -75px auto 0 auto; 
-        padding: 0 20%;
-        display: flex;
-        justify-content: space-around;
-
-        button {
-            height: 50px;
-            width: 100px;
-            background-color: #ffffff;
-            color: #FE8942;
-            border: none;
-            font-size: 24px;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 1px 2px 2px #818181;
-            outline: none;
-            
+        h2 {
+            font-size: 30pt;
+            padding: 20px 0px;
+            text-align: center;
+            color: white;
+            font-weight: bolder;
         }
+
+        .stopwatchDisplay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 50pt;
+        }
+
+        .buttons{
+            position: relative;
+            padding: 30 0;
+            text-align: center;
+
+            button {
+                height: 40px;
+                width: 100px;
+                background-color: #ffffff;
+                color: #FE8942;
+                border: none;
+                font-size: 20px;
+                font-weight: bold;
+                text-transform: uppercase;
+                border-radius: 5px;
+                cursor: pointer;
+                box-shadow: 1px 2px 2px #818181;
+                outline: none;
+                
+            }
+        }
+    
+    }
+
+    //pomodoro styling
+    .timetool2 {
+        background-color: #EC5658;
+        border-radius: 10px;
+
+        h2 {
+            font-size: 30pt;
+            padding: 20px 0px;
+            text-align: center;
+            color: #ffffff;
+            font-weight: bolder;
+        }
+
+        #pomodoro-modes {
+            text-align: center;
+            margin-bottom: 20px;
+            .mode-button {
+                font-size: 16px;
+                height: 28px;
+                cursor: pointer;
+                box-shadow: none;
+                font-weight: 300;
+                color: #fff;
+                border: 1px solid transparent;
+                margin: 0px;
+                border-radius: 4px;
+                padding: 2px 12px;
+                background: none;
+              }
+              
+              .mode-button.active {
+                border-color: #fff;
+              }
+        }
+
+        #pomoDisplay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 50pt;
+        }
+
+        .buttons{
+            position: relative;
+            padding: 30 0;
+            text-align: center;
+
+            button {
+                height: 40px;
+                width: 100px;
+                background-color: #ffffff;
+                color: #EC5658;
+                border: none;
+                font-size: 20px;
+                font-weight: bold;
+                text-transform: uppercase;
+                border-radius: 5px;
+                cursor: pointer;
+                box-shadow: 1px 2px 2px #818181;
+                outline: none;
+                
+            }
+        }
+    
     }
   
 }
-
-//RESPONSIVENESS
-
-    //   // added media query for responsiveness between desktop and mobile
-    //   // chose 480px as most mobile screen viewport is between 320 to 480 px
-    //   @media (max-width: 480px){
-    //     width: 100%;
-    //     height: 100px;
-    //     background-color: #F9F9FB;
-    //     .checkbtn{
-    //         display: block;
-    //     }
-    //     .nav-links {
-    //         position: absolute;
-    //         width: 100%;
-    //         height: 100vh;
-    //         background: #FFFFFF;
-    //         top: 100px;
-    //         left: -100%;
-    //         text-align: center;
-    //         transition: all .4s;
-
-    //         #logo {
-    //             margin-top: 10px;
-    //             margin-bottom: 10px;
-    //             padding: 1em 2em;
-    //         }
-    //     }
-      
-    //     #check:checked ~ ul{
-    //         left: 0;
-    //     }
-    // }

@@ -30,14 +30,9 @@ img {
 .app-container .vertical {
   width: 240px;
   height: 100vh;
+  background-color: #fff;
   border-style: double;
   border-color: red;
-}
-
-.app-container .vertical #logo {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  padding: 1em 2em;
 }
 
 .app-container .vertical .checkbtn {
@@ -54,13 +49,22 @@ img {
   display: none;
 }
 
-.app-container .vertical .nav-links .nav-item {
+.app-container .vertical .nav-links {
   text-align: center;
+}
+
+.app-container .vertical .nav-links #logo {
+  padding: 50px 0;
+}
+
+.app-container .vertical .nav-links .nav-item {
   padding: 1em 2em;
 }
 
-.app-container .vertical .nav-links .nav-item.active {
-  border-color: #ffd166;
+.app-container .vertical .nav-links .nav-item .active {
+  background-color: #ffd166;
+  border-radius: 10px;
+  bottom: 10px;
 }
 
 .app-container .vertical .nav-links .nav-item:hover {
@@ -69,15 +73,18 @@ img {
 }
 
 .app-container .page-container {
+  height: 100vh;
+  background-color: purple;
   border-style: double;
   border-color: green;
   flex: 1;
-  margin: 50px;
+  padding: 50px;
 }
 
 .app-container .page-container h1 {
   color: #757575;
   text-transform: uppercase;
+  margin-bottom: 30px;
   font-size: 18pt;
   font-weight: bold;
 }
@@ -138,52 +145,111 @@ img {
   height: 100vh;
 }
 
-#timetools #timetool1, #timetools #timetool2 {
-  cursor: pointer;
-  background-color: #fff;
-  border: none;
-  border-radius: 5px;
-  margin: 0 0 0 30px;
-  font-size: 24pt;
-  box-shadow: .5px 1px 2px #818181;
-}
-
-#timetools #timerbox {
-  width: 60%;
-  height: 300px;
+#timetools .timetool1 {
   background-color: #ffa167;
   border-radius: 10px;
-  margin-top: 50px;
-  margin-left: 20%;
+  margin-bottom: 30px;
 }
 
-#timetools .stopwatchDisplay {
+#timetools .timetool1 h2 {
+  text-align: center;
+  color: #fff;
+  padding: 20px 0;
+  font-size: 30pt;
+  font-weight: bolder;
+}
+
+#timetools .timetool1 .stopwatchDisplay {
   color: #fff;
   justify-content: center;
   align-items: center;
-  padding: 50px 0 100px;
-  font-size: 80pt;
+  font-size: 50pt;
   display: flex;
 }
 
-#timetools .buttons {
-  justify-content: space-around;
-  margin: -75px auto 0;
-  padding: 0 20%;
-  display: flex;
+#timetools .timetool1 .buttons {
+  text-align: center;
+  padding: 30px 0;
   position: relative;
 }
 
-#timetools .buttons button {
-  height: 50px;
+#timetools .timetool1 .buttons button {
+  height: 40px;
   width: 100px;
   color: #fe8942;
+  text-transform: uppercase;
   cursor: pointer;
   background-color: #fff;
   border: none;
   border-radius: 5px;
   outline: none;
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 1px 2px 2px #818181;
+}
+
+#timetools .timetool2 {
+  background-color: #ec5658;
+  border-radius: 10px;
+}
+
+#timetools .timetool2 h2 {
+  text-align: center;
+  color: #fff;
+  padding: 20px 0;
+  font-size: 30pt;
+  font-weight: bolder;
+}
+
+#timetools .timetool2 #pomodoro-modes {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#timetools .timetool2 #pomodoro-modes .mode-button {
+  height: 28px;
+  cursor: pointer;
+  box-shadow: none;
+  color: #fff;
+  background: none;
+  border: 1px solid #0000;
+  border-radius: 4px;
+  margin: 0;
+  padding: 2px 12px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+#timetools .timetool2 #pomodoro-modes .mode-button.active {
+  border-color: #fff;
+}
+
+#timetools .timetool2 #pomoDisplay {
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  font-size: 50pt;
+  display: flex;
+}
+
+#timetools .timetool2 .buttons {
+  text-align: center;
+  padding: 30px 0;
+  position: relative;
+}
+
+#timetools .timetool2 .buttons button {
+  height: 40px;
+  width: 100px;
+  color: #ec5658;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 20px;
+  font-weight: bold;
   box-shadow: 1px 2px 2px #818181;
 }
 

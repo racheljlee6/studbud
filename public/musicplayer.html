@@ -7,10 +7,12 @@
   <title>StudBud - Music Player</title>
   <link rel="icon" href="images/favicon.svg">
   <link href="scss/main.scss" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <script src="https://kit.fontawesome.com/9263dbef1b.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="app-container">
+  <!-- nav bar -->
   <nav class="vertical">
     <input type="checkbox" id="check">
     <label for="check" class="checkbtn">
@@ -26,10 +28,62 @@
     </ul>
   </nav>
 
+  <!-- music player -->
   <div id="home" class="page-container">
       <h1>Music Player</h1>
-      <p> inSERT some text here</p>
+      
+      <div class="wrapper">
+        <div class="top-bar">
+          <i class="material-icons">expand_more</i>
+          <span>Now Playing</span>
+          <i class="material-icons">more_horiz</i>
+        </div>
+        <div class="img-area">
+          <!-- cover image -->
+          <img src="images/logo.svg" alt="Logo" width="159" height="54">
+        </div>
+        <div class="song-details">
+          <p class="name"></p>
+          <p class="artist"></p>
+        </div>
+        <div class="progress-area">
+          <div class="progress-bar">
+            <!-- <audio id="main-audio" src=""></audio> -->
+          </div>
+          <div class="song-timer">
+            <span class="current-time">0:00</span>
+            <span class="max-duration">0:00</span>
+          </div>
+        </div>
+        <div class="controls">
+          <i id="repeat-plist" class="material-icons" title="Playlist looped">repeat</i>
+          <i id="prev" class="material-icons">skip_previous</i>
+          <div class="play-pause">
+            <i class="material-icons play">play_arrow</i>
+          </div>
+          <i id="next" class="material-icons">skip_next</i>
+          <i id="more-music" class="material-icons">queue_music</i>
+        </div>
+        <div class="music-list">
+          <div class="header">
+            <div class="row">
+              <i class= "list material-icons">queue_music</i>
+              <span>Music list</span>
+            </div>
+            <i id="close" class="material-icons">close</i>
+          </div>
+          <ul>
+            <!-- here li list are coming from js -->
+          </ul>
+        </div>
+      </div>
+
+
   </div>
+
+  <!-- <script src="js/music-list.js"></script>
+  <script src="js/script.js"></script> -->
+
 
   <script type="module" src="script.js"></script>
 </body>
