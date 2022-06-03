@@ -508,7 +508,60 @@ var _tasklist = require("./components/tasklist");
 var _readinglist = require("./components/readinglist");
 
 },{"./components/tasklist":"5i9SJ","./components/readinglist":"iCD2W"}],"5i9SJ":[function(require,module,exports) {
-// Basic form DOM elements
+// could'nt get js for kanban to work
+/*
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.currentTarget.appendChild(document.getElementById(data));
+        }
+  //create a new task
+        function createTask(){
+            var x = document.getElementById("inprogress");
+            var y = document.getElementById("complete");
+            var z = document.getElementById("create-new-task-block");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                y.style.display = "block";
+                z.style.display = "none";
+            } else {
+                x.style.display = "none";
+                y.style.display = "none";
+                z.style.display = "flex";
+            }
+        }
+  // save the task details
+        function saveTask(){
+            var todo = document.getElementById("todo");
+            var taskName = document.getElementById("task-name").value;
+            todo.innerHTML += `
+            <div class="task" id="${taskName.toLowerCase().split(" ").join("")}" draggable="true" ondragstart="drag(event)">
+                <span>${taskName}</span>
+            </div>
+            `
+        }
+// revisit task and edit detials
+        function editTask(){
+            var saveButton = document.getElementById("save-button");
+            var editButton = document.getElementById("edit-button");
+            if (saveButton.style.display === "none") {
+                saveButton.style.display = "block";
+                editButton.style.display = "none";
+            } else{
+                saveButton.style.display = "none";
+                editButton.style.display = "block";
+            }
+        }
+        
+        */ // Basic form DOM elements
 const form = document.getElementById("taskform");
 const button = document.querySelector("#taskform > button");
 // Selector for the tasklist output

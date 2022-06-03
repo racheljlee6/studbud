@@ -1,0 +1,63 @@
+#task-grid {
+  margin: 20px 0;
+  #taskform {
+    padding-bottom: 20px;
+    label {
+      display: block;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    input, #priorityInput {
+      width: 300px;
+      display: block;
+      height: 35px;
+      color: grey;
+    }
+
+    button {
+      margin: 20 0;
+      cursor: pointer;
+      background-color: #02C77E;
+      height: 40px;
+      color: #ffffff;
+      border: none;
+      font-weight: bold;
+      border-radius: 5px;
+      outline: none;
+      &:hover {
+          background-color: #039B63;
+      }
+    }
+  }
+
+
+  #tasklist {
+    // background-color: purple;
+    margin: 10 0;
+    font-style: italic;
+    text-align: center;
+  }
+  p {
+    font-size: 20pt;
+  }
+  button {
+    cursor: pointer;
+    background-color: #EC5658;
+    height: 20px;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    &:hover {
+        background-color: #ae2123;
+    }
+  }
+  li {
+    padding: 10 20;
+    margin: 0 10;
+    float: left;
+    border-radius: 10px;
+    background-color: #E5E5E7;
+
+  }
+}

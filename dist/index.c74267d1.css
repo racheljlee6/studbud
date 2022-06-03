@@ -308,6 +308,75 @@ img {
   }
 }
 
+#task-grid {
+  margin: 20px 0;
+}
+
+#task-grid #taskform {
+  padding-bottom: 20px;
+}
+
+#task-grid #taskform label {
+  margin: 10px 0;
+  font-weight: bold;
+  display: block;
+}
+
+#task-grid #taskform input, #task-grid #taskform #priorityInput {
+  width: 300px;
+  height: 35px;
+  color: gray;
+  display: block;
+}
+
+#task-grid #taskform button {
+  cursor: pointer;
+  height: 40px;
+  color: #fff;
+  background-color: #02c77e;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+#task-grid #taskform button:hover {
+  background-color: #039b63;
+}
+
+#task-grid #tasklist {
+  text-align: center;
+  margin: 10px 0;
+  font-style: italic;
+}
+
+#task-grid p {
+  font-size: 20pt;
+}
+
+#task-grid button {
+  cursor: pointer;
+  height: 20px;
+  color: #fff;
+  background-color: #ec5658;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+#task-grid button:hover {
+  background-color: #ae2123;
+}
+
+#task-grid li {
+  float: left;
+  background-color: #e5e5e7;
+  border-radius: 10px;
+  margin: 0 10px;
+  padding: 10px 20px;
+}
+
 #reading-list {
   text-align: left;
   margin: 0;
@@ -321,6 +390,7 @@ img {
 
 #reading-list #entry-form .field label {
   margin: 15px 0;
+  font-weight: bold;
   display: block;
 }
 
