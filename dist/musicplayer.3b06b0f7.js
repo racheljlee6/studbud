@@ -505,10 +505,113 @@ function hmrAcceptRun(bundle, id) {
 },{}],"2OD7o":[function(require,module,exports) {
 //Import just as JS
 var _timetools = require("./components/timetools");
+var _readinglist = require("./components/readinglist");
 
-},{"./components/timetools":"7uux5"}],"7uux5":[function(require,module,exports) {
+},{"./components/readinglist":"iCD2W","./components/timetools":"7uux5"}],"iCD2W":[function(require,module,exports) {
+// Create object through Class - represents a reference
+class Reference {
+    constructor(reference, link){
+        this.reference = reference;
+        this.link = link;
+    }
+}
+// Interface object to manage interface tasks
+class Interface {
+    static displayReferences() {
+        const references = Save.getReferences();
+        references.forEach((ref)=>Interface.addReferenceToList(ref));
+    }
+    static addReferenceToList(ref) {
+        const col = document.querySelector("#reference-list");
+        const row = document.createElement("tr");
+        row.innerHTML = `
+        <td>${ref.reference}</td>
+        <td>${ref.link}</td>
+        <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+      `;
+        col.appendChild(row);
+    }
+    static deleteReference(el) {
+        if (el.classList.contains("delete")) el.parentElement.parentElement.remove();
+    }
+    static showAlert(message, className) {
+        const div = document.createElement("div");
+        div.className = `alert alert-${className}`;
+        div.appendChild(document.createTextNode(message));
+        const container = document.querySelector(".container");
+        const form = document.querySelector("#entry-form");
+        container.insertBefore(div, form);
+        // disappear in 4 seconds
+        setTimeout(()=>document.querySelector(".alert").remove(), 4000);
+    }
+    // clear the values of the fields
+    static clearValues() {
+        document.querySelector("#reference").value = "";
+        document.querySelector("#link").value = "";
+    }
+}
+// object to save referecnces
+class Save {
+    static getReferences() {
+        let references;
+        if (localStorage.getItem("references") === null) references = [];
+        else references = JSON.parse(localStorage.getItem("references"));
+        return references;
+    }
+    // add new reference to storage
+    static createReference(ref) {
+        const references = Save.getReferences();
+        references.push(ref);
+        localStorage.setItem("references", JSON.stringify(references));
+    }
+    //remove a soecific reference from storage
+    static removeReference(link) {
+        const references = Save.getReferences();
+        // for each loop to find the one clicked on
+        references.forEach((ref, index)=>{
+            if (ref.link === link) references.splice(index, 1);
+        });
+        localStorage.setItem("references", JSON.stringify(references));
+    }
+}
+// Display on screen the references
+document.addEventListener("DOMContentLoaded", Interface.displayReferences);
+// listen for submit then add an entire reference
+document.querySelector("#entry-form").addEventListener("submit", (e)=>{
+    // Prevent an actual submit
+    e.preventDefault();
+    // let vairbles equal reference form's values
+    const reference = document.querySelector("#reference").value;
+    const link = document.querySelector("#link").value;
+    // validation methods - prevent half filled form
+    if (reference === "" || link === "") Interface.showAlert("Please fill out all required fields", "danger");
+    else {
+        // let ref = object
+        const ref = new Reference(reference, link);
+        // add new reference to interface
+        Interface.addReferenceToList(ref);
+        // create new reference to saved refs
+        Save.createReference(ref);
+        // validation method - show when ref has been created
+        Interface.showAlert("Reference Created", "success");
+        // clear values in fields
+        Interface.clearValues();
+    }
+});
+// delete reference
+document.querySelector("#reference-list").addEventListener("click", (e)=>{
+    // delete reference from interfacee
+    Interface.deleteReference(e.target);
+    // delete reference from saved
+    Save.removeReference(e.target.parentElement.previousElementSibling.textContent);
+    // validation method - show when ref has been deleted
+    Interface.showAlert("Reference Deleted", "success");
+});
+
+},{}],"7uux5":[function(require,module,exports) {
+// STOPWATCH JS //
 //added hour to stopwatch based on user feedback
-let [sec, min, hr] = [
+let [secs, mins, hr] = [
     0,
     0,
     0
@@ -527,7 +630,7 @@ document.getElementById("stopTimer").addEventListener("click", ()=>{
 });
 document.getElementById("resetTimer").addEventListener("click", ()=>{
     clearInterval(int);
-    [sec, min, hr] = [
+    [secs, mins, hr] = [
         0,
         0,
         0
@@ -536,20 +639,120 @@ document.getElementById("resetTimer").addEventListener("click", ()=>{
 });
 //cycle through time
 function cycleStopwatch() {
-    sec++;
-    if (sec >= 60) {
-        sec = 0;
-        min++;
-        if (min >= 60) {
-            min = 0;
+    secs++;
+    if (secs >= 60) {
+        secs = 0;
+        mins++;
+        if (mins >= 60) {
+            mins = 0;
             hr++;
         }
     }
+    // conditional operatation
     let h = hr < 10 ? "0" + hr : hr;
-    let m = min < 10 ? "0" + min : min;
-    let s = sec < 10 ? "0" + sec : sec;
+    let m = mins < 10 ? "0" + mins : mins;
+    let s = secs < 10 ? "0" + secs : secs;
+    // modify content of HTML element through innerhtml
     defaultTime.innerHTML = `${h} : ${m} : ${s}`;
 }
+// POMODORO JS //
+// variables for timer based on each feature time period
+const timer = {
+    pomodoro: 25,
+    shortBreak: 5,
+    longBreak: 30
+};
+// declared interval variable to be assigned an instance of setInterval()
+let interval;
+//event listener to call start and stop functions for pomo timer
+const startStop = document.getElementById("pomoButton");
+startStop.addEventListener("click", ()=>{
+    const { action  } = startStop.dataset;
+    if (action === "start") startPomo();
+    else stopPomo();
+});
+// function to update countdown with clicked time 
+const pomodoroModes = document.querySelector("#pomodoro-modes");
+pomodoroModes.addEventListener("click", handleMode);
+// function to find diff between current time and end time and return in milliseconds
+function getTimeLeft(endT) {
+    //retriveve exact time of current moment
+    // where currentT = current time the clock is at
+    const currentT = Date.parse(new Date());
+    const diff = endT - currentT;
+    // converting to base 10
+    // where t = total, m = minutes and s= seconds.
+    const t = Number.parseInt(diff / 1000, 10);
+    const minute = Number.parseInt(t / 60 % 60, 10);
+    const second = Number.parseInt(t % 60, 10);
+    return {
+        t,
+        minute,
+        second
+    };
+}
+// start time by count down to 0
+function startPomo() {
+    let { t  } = timer.remainingTime;
+    // where endT = time the clock will end
+    const endT = Date.parse(new Date()) + t * 1000;
+    startStop.dataset.action = "stop";
+    startStop.textContent = "stop";
+    startStop.classList.add("active");
+    interval = setInterval(function() {
+        // update clock time with new time
+        timer.remainingTime = getTimeLeft(endT);
+        clockUpdate();
+        //stop timer when reach 0 
+        t = timer.remainingTime.t;
+        if (t <= 0) clearInterval(interval);
+    }, 1000);
+}
+// stop timer when clicked
+function stopPomo() {
+    clearInterval(interval);
+    startStop.dataset.action = "start";
+    startStop.textContent = "start";
+    startStop.classList.remove("active");
+}
+//update countdown clock
+function clockUpdate() {
+    const { remainingTime  } = timer;
+    // https://www.w3schools.com/js/js_string_methods.asp
+    // pads a string withh another string
+    const minute = `${remainingTime.minute}`.padStart(2, "0");
+    const second = `${remainingTime.second}`.padStart(2, "0");
+    const min = document.getElementById("pomoMins");
+    const sec = document.getElementById("pomoSecs");
+    // return text content of specified element
+    min.textContent = minute;
+    sec.textContent = second;
+}
+// change betwwen modes
+function changeMode(mode) {
+    timer.mode = mode;
+    timer.remainingTime = {
+        t: timer[mode] * 60,
+        minute: timer[mode],
+        second: 0
+    };
+    //remove active from mode buttons and set for clicked button.
+    document.querySelectorAll("button[data-mode]").forEach((e)=>e.classList.remove("active"));
+    document.querySelector(`[data-mode="${mode}"]`).classList.add("active");
+    clockUpdate();
+}
+// retrieve data-mode attribute value 
+//if data-mode attribute doesnt exisit the target was not one of the buttons and the function ends 
+function handleMode(event) {
+    const { mode  } = event.target.dataset;
+    if (!mode) return;
+    changeMode(mode);
+    stopPomo();
+}
+// make default mode to be pomodoro and reset values
+document.addEventListener("DOMContentLoaded", ()=>{
+    changeMode("pomodoro");
+});
 
 },{}]},["lNJce","2OD7o"], "2OD7o", "parcelRequire60da")
 

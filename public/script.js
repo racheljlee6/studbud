@@ -1,3 +1,3 @@
 //Import just as JS
-import './components/tasklist';
+import './components/timetools';
 import './components/readinglist';
