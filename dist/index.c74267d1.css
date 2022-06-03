@@ -417,23 +417,73 @@ textarea {
   display: none;
 }
 
-#myInput {
+#reading-list {
+  text-align: left;
+  margin: 0;
+  font-size: 18px;
+  line-height: 2;
+}
+
+#reading-list #entry-form {
+  margin-bottom: 20px;
+}
+
+#reading-list #entry-form .field label {
   margin: 15px 0;
-  padding: 15px 10px;
+  display: block;
 }
 
-tr, td {
-  border: 1px solid gray !important;
-  padding: 12px !important;
+#reading-list #entry-form .field input {
+  width: 100%;
+  height: 35px;
+  display: block;
 }
 
-#box {
-  float: left;
+#reading-list #entry-form .submit-btn {
+  width: 60%;
+  cursor: pointer;
+  height: 40px;
+  color: #fff;
+  background-color: #1e79f0;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  margin: 20px 0;
+  font-weight: bold;
 }
 
-#add-new-books {
-  float: right;
-  width: 40%;
+#reading-list #entry-form .submit-btn:hover {
+  background-color: #02c77e;
+}
+
+#reading-list .reference-table th, #reading-list .reference-table td {
+  border-top: 1px solid #dee2e6;
+  padding: 8px;
+}
+
+#reading-list .reference-table td {
+  background-color: #e3ecfa;
+}
+
+#reading-list .reference-table td .btn {
+  cursor: pointer;
+  color: #fff;
+  background-color: #ec5658;
+  text-decoration: none;
+}
+
+#reading-list .alert.alert-success {
+  text-align: center;
+  color: #fff;
+  background-color: #02c77e;
+  font-size: 12pt;
+}
+
+#reading-list .alert.alert-danger {
+  text-align: center;
+  color: #fff;
+  background-color: #ec5658;
+  font-size: 12pt;
 }
 
 /*# sourceMappingURL=index.c74267d1.css.map */

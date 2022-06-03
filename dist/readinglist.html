@@ -26,35 +26,40 @@
     </ul>
   </nav>
 
-  <!-- <div id="reading-list" class="page-container"> -->
-  <div id="reading-list" class="container mt-4">
-    <form id="entry-form">
-      <div class="field">
-        <label for="reference">Reference Name</label>
-        <input type="text" id="reference">
-      </div>
+  <!-- page content - reading list to save reference links -->
+  <div class="page-container">
+    <h1>Reading list</h1>
+    <div id="reading-list" class="container mt-4">
+      <!-- entry form for new references -->
+      <form id="entry-form">
+        <div class="field">
+          <label for="reference">Reference Name</label>
+          <input type="text" id="reference">
+        </div>
+          
+        <div class="field">
+          <label for="link">Link</label>
+          <input type="text" id="link">
+        </div>
         
-      <div class="field">
-        <label for="link">Link</label>
-        <input type="text" id="link">
-      </div>
+        <input type="submit" value="New Reference" class="submit-btn">
+      </form>
       
-      <input type="submit" value="New Reference" class="submit-btn">
-    </form>
+      <!-- store references in html table -->
+      <table class="reference-table">
+        <thead>
+          <tr>
+            <th>Reference Name</th>
+            <th>Link</th>
+            <th></th>
+          </tr>
+        </thead>
+        <!-- https://www.w3schools.com/tags/tag_tbody.asp - group content of body in HTML table -->
+        <tbody id="reference-list"></tbody>
+      </table>
+    </div>
     
-    <table class="reference-table">
-      <thead>
-        <tr>
-          <th>Reference Name</th>
-          <th>Link</th>
-          <th></th>
-        </tr>
-      </thead>
-      
-      <tbody id="reference-list"></tbody>
-    </table>
-  </div>
-
+  </div> 
   <script src="/timetools.3b06b0f7.js" defer=""></script>
 </body>
 

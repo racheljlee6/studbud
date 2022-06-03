@@ -1,19 +1,69 @@
-#myInput {
-    margin: 15px 0px;
-    padding: 15px 10px;   
+#reading-list {
+  margin: 0;
+  line-height: 2;
+  text-align: left;
+  font-size: 18px;
+  
+  #entry-form {
+    margin-bottom: 20px;
+    .field {
+      label {
+        margin: 15 0;
+        display: block;
+      }
+      input {
+        width: 100%;
+        display: block;
+        height: 35px;
+      }
+    }
+    .submit-btn {
+      margin: 20 0;
+      width: 60%;
+      cursor: pointer;
+      background-color: #1E79F0;
+      height: 40px;
+      color: #ffffff;
+      border: none;
+      font-weight: bold;
+      border-radius: 5px;
+      outline: none;
+      &:hover {
+          background-color: #02C77E;
+      }
+      
+    }
   }
 
- 
-tr, td {
-padding: 12px!important;
-border: 1px solid grey!important;
-}
+  .reference-table {
+    
+    th, td {
+      padding: 8px;
+      border-top: 1px solid #dee2e6;
+    }
+    td {
+      background-color: #E3ECFA;
+      .btn {
+        cursor: pointer;
+        color:white;
+        text-decoration: none;
+        background-color: #EC5658;
+      }
+    }
+  }
 
-#box {
-float: left;
-}
-
-#add-new-books { 
-float: right;
-width: 40%;
+  .alert.alert-success {
+    font-size: 12pt;
+    text-align: center;
+    color: #ffffff;
+    background-color: #02C77E;
+  
+  }
+  .alert.alert-danger {
+    font-size: 12pt;
+    text-align: center;
+    color: #ffffff;
+    background-color: #EC5658;
+  
+  }
 }
