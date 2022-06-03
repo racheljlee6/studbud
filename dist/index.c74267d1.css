@@ -74,7 +74,6 @@ img {
 
 .app-container .page-container {
   height: 100vh;
-  background-color: purple;
   border-style: double;
   border-color: green;
   flex: 1;
@@ -188,6 +187,10 @@ img {
   box-shadow: 1px 2px 2px #818181;
 }
 
+#timetools .timetool1 .buttons button:hover {
+  background-color: #863a0b;
+}
+
 #timetools .timetool2 {
   background-color: #ec5658;
   border-radius: 10px;
@@ -207,24 +210,21 @@ img {
 }
 
 #timetools .timetool2 #pomodoro-modes .mode-button {
-  height: 28px;
+  height: 30px;
   cursor: pointer;
-  box-shadow: none;
   color: #fff;
   background: none;
   border: 1px solid #0000;
   border-radius: 4px;
-  margin: 0;
-  padding: 2px 12px;
-  font-size: 16px;
-  font-weight: 300;
+  padding: 0 15px;
+  font-size: 15px;
 }
 
 #timetools .timetool2 #pomodoro-modes .mode-button.active {
-  border-color: #fff;
+  background-color: #bc5753;
 }
 
-#timetools .timetool2 #pomoDisplay {
+#timetools .timetool2 .pomo {
   color: #fff;
   justify-content: center;
   align-items: center;
@@ -232,25 +232,74 @@ img {
   display: flex;
 }
 
-#timetools .timetool2 .buttons {
+#timetools .timetool2 #pomo-button {
   text-align: center;
-  padding: 30px 0;
   position: relative;
 }
 
-#timetools .timetool2 .buttons button {
+#timetools .timetool2 #pomo-button #pomoButton {
   height: 40px;
   width: 100px;
   color: #ec5658;
-  text-transform: uppercase;
   cursor: pointer;
+  text-transform: uppercase;
   background-color: #fff;
   border: none;
   border-radius: 5px;
   outline: none;
+  margin: 30px 0;
   font-size: 20px;
   font-weight: bold;
   box-shadow: 1px 2px 2px #818181;
+}
+
+#timetools .timetool2 #pomo-button #pomoButton:hover {
+  background-color: #860b0b;
+}
+
+@media screen and (max-width: 680px) {
+  #timetools .timetool1 h2 {
+    padding: 10px 0;
+    font-size: 20pt;
+  }
+
+  #timetools .timetool1 .stopwatchDisplay {
+    font-size: 20pt;
+  }
+
+  #timetools .timetool1 .buttons {
+    padding: 20px 0;
+  }
+
+  #timetools .timetool1 .buttons button {
+    height: 25px;
+    width: 60px;
+    font-size: 12px;
+  }
+
+  #timetools .timetool2 h2 {
+    padding: 10px 0;
+    font-size: 20pt;
+  }
+
+  #timetools .timetool2 #pomodoro-modes {
+    margin-bottom: 10px;
+  }
+
+  #timetools .timetool2 #pomodoro-modes .mode-button {
+    font-size: 12px;
+  }
+
+  #timetools .timetool2 .pomo {
+    font-size: 25pt;
+  }
+
+  #timetools .timetool2 #pomo-button #pomoButton {
+    height: 30px;
+    width: 80px;
+    margin: 20px 0;
+    font-size: 12px;
+  }
 }
 
 /*# sourceMappingURL=index.c74267d1.css.map */

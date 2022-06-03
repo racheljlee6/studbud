@@ -41,10 +41,11 @@
                 cursor: pointer;
                 box-shadow: 1px 2px 2px #818181;
                 outline: none;
-                
+                &:hover {
+                    background-color: #863A0B;
+                }
             }
         }
-    
     }
 
     //pomodoro styling
@@ -54,64 +55,116 @@
 
         h2 {
             font-size: 30pt;
-            padding: 20px 0px;
-            text-align: center;
-            color: #ffffff;
             font-weight: bolder;
+            text-align: center;
+            padding: 20px 0px;
+            color: #ffffff;
         }
 
         #pomodoro-modes {
             text-align: center;
             margin-bottom: 20px;
             .mode-button {
-                font-size: 16px;
-                height: 28px;
+                font-size: 15px;
+                height: 30px;
                 cursor: pointer;
-                box-shadow: none;
-                font-weight: 300;
-                color: #fff;
+                color: #ffffff;
                 border: 1px solid transparent;
-                margin: 0px;
                 border-radius: 4px;
-                padding: 2px 12px;
+                padding: 0 15px;
                 background: none;
-              }
+            }
               
-              .mode-button.active {
-                border-color: #fff;
-              }
+            .mode-button.active {
+                background-color: #BC5753;
+            }
         }
-
-        #pomoDisplay {
+        .pomo {
+            font-size: 50pt;
+            color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffffff;
-            font-size: 50pt;
         }
 
-        .buttons{
+        #pomo-button {
             position: relative;
-            padding: 30 0;
             text-align: center;
-
-            button {
+            #pomoButton{
                 height: 40px;
                 width: 100px;
-                background-color: #ffffff;
                 color: #EC5658;
-                border: none;
+                background-color: #ffffff;
+                cursor: pointer;
                 font-size: 20px;
                 font-weight: bold;
                 text-transform: uppercase;
+                border: none;
                 border-radius: 5px;
-                cursor: pointer;
                 box-shadow: 1px 2px 2px #818181;
                 outline: none;
-                
+                margin: 30px 0;
+                &:hover {
+                    background-color: #860B0B;
+                }
             }
         }
     
     }
   
 }
+
+// responsive timetools for mobile screens
+@media screen and (max-width: 680px) {
+    #timetools {
+
+        .timetool1 {
+            h2 {
+                font-size: 20pt;
+                padding: 10px 0px;
+            }
+
+            .stopwatchDisplay {
+                font-size: 20pt;
+            }
+
+            .buttons{
+                padding: 20px 0;
+                
+                button {
+                    height: 25px;
+                    width: 60px;
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .timetool2 {
+            h2 {
+                font-size: 20pt;
+                padding: 10px 0px;
+            }
+
+            #pomodoro-modes {
+                margin-bottom: 10px;
+                .mode-button {
+                    font-size: 12px;
+                }
+                
+            }
+
+            .pomo {
+                font-size: 25pt;
+            }
+
+            #pomo-button {
+                #pomoButton {
+                    height: 30px;
+                    width: 80px;
+                    font-size: 12px;
+                    margin: 20px 0;
+                }
+            }
+        }
+    }
+  }

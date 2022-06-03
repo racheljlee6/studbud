@@ -45,40 +45,32 @@
         </div>
       </div>  
 
-      <!-- pomodoro -->
-      <div class="timetool2">
+    <!-- pomodoro -->
+       <div class="timetool2">
         <h2>Pomodoro</h2>
+
+        <!-- pomo modes -->
+        <!-- reference data attributes in html https://www.w3schools.com/tags/att_data-.asp -->
         <div id="pomodoro-modes">
-          <button data-mode="pomodoro" class="button active mode-button" id="js-pomodoro"> 
-            Pomodoro
-          </button>
-          <button data-mode="shortBreak" class="button mode-button" id="js-short-break">
-            Short Break
-          </button>
-          <button data-mode="longBreak" class="button mode-button" id="js-long-break">
-            Long Break
-          </button>
-        </div>
-        
-        <div class="clock" id="pomoDisplay">
-          <!-- <span id="js-minutes">25</span>
-          <span class="separator">:</span>
-          <span id="js-seconds">00</span> -->
-          25 : 00
+          <button data-mode="pomodoro" class="button active mode-button">Pomodoro</button>
+          <button data-mode="shortBreak" class="button mode-button">Short Break</button>
+          <button data-mode="longBreak" class="button mode-button">Long Break</button>
         </div>
 
-        <div class="buttons">
-          <button id="startTimer">Start</button>
-          <button id="stopTimer">Stop</button>
-          <button id="resetTimer">Reset</button>
+        <!-- pomo timer -->
+        <div class="pomo">
+          <span id="pomoMins">25</span>
+          <span>:</span>
+          <span id="pomoSecs">00</span>
         </div>
 
-      </div>    
-      
-  </div>
+        <div id="pomo-button">
+          <button data-action="start" id="pomoButton">Start</button>
+        </div>
+      </div>        
 
-
+  </div> 
+  
   <script src="/timetools.3b06b0f7.js" defer=""></script>
 </body>
-
 </html>
