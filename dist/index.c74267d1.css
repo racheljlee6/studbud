@@ -37,8 +37,6 @@ img {
   width: 240px;
   height: 100vh;
   background-color: #fff;
-  border-style: double;
-  border-color: red;
 }
 
 .app-container .vertical .checkbtn {
@@ -80,8 +78,6 @@ img {
 
 .app-container .page-container {
   height: 100vh;
-  border-style: double;
-  border-color: green;
   flex: 1;
   padding: 50px;
 }
