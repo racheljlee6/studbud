@@ -7,6 +7,7 @@
   <title>StudBud - Tasks</title>
   <link rel="icon" href="images/favicon.svg">
   <link href="scss/main.scss" rel="stylesheet" type="text/css">
+  <!-- import icons library from font awesome -->
   <script src="https://kit.fontawesome.com/9263dbef1b.js" crossorigin="anonymous"></script>
 </head>
 
@@ -27,11 +28,85 @@
     </ul>
   </nav>
   <!-- page content - task list/kanban board -->
-  <div id="home" class="page-container">
-      <h1>Tasks</h1>
+  <div id="home" class="page-container" id="container">
+    <h1>Tasks</h1>
+
+    <div class="kanban-board">
       <h2>Kanban Board</h2>
-      <p> inSERT some text here</p>
-      <!-- <img src="images/logo.svg" alt="Logo" width="159" height="54"> -->
+
+      <!-- to-do list -->
+      <div class="kanban-col" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <h3>TO DO</h3>
+      
+        <div class="task-button-block">
+          <button id="task-button" onclick="createTask()">Create new task</span>
+        </div>
+          
+        <div class="task" id="task1" draggable="true" ondragstart="drag(event)">
+        <span>Task 1</span>
+        </div>
+
+        <div class="task" id="task2" draggable="true" ondragstart="drag(event)">
+        <span>Task 2</span>
+        </div>
+
+        <div class="task" id="task3" draggable="true" ondragstart="drag(event)">
+        <span>Task 3</span>
+        </div>
+      </div>
+
+      <!-- in progress -->
+      <div class="kanban-col" id="inprogress" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <h3>In Progress</h3>
+      </div>
+
+      <!-- Completed -->
+      <div class="kanban-col" id="completed" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <h3>Completed</h3>
+      </div>
+
+      <!-- Create new task -->
+      <div class="create-new-task-block" id="create-new-task-block">
+        <h3>New Task</h3>
+
+        <span class="form-row">
+          <label class="form-row-label" for="task-name">Task</label>
+          <input class="form-row-input" type="text" name="task-name" id="task-name">
+        </span>
+        
+        <span class="form-row">
+          <label class="form-row-label" for="task-name">Description</label>
+          <textarea class="form-row-input" name="task-description" id="task-description" cols="70" rows="10"></textarea>
+        </span>
+
+        <span class="form-row">
+          <label class="form-row-label" for="task-name">Status</label>
+          <select class="form-row-input" name="task-status" id="task-status">
+          <option value="todo">To Do</option>
+          <option value="inprogress">In Progress</option>
+          <option value="done">Done</option>
+          </select>
+        </span>
+
+        <span class="form-row-buttons">
+          <button id="edit-button" onclick="editTask()">Edit</span>
+          <button id="save-button" onclick="saveTask()">Save</span>
+          <button id="cancel-button" onclick="createTask()">Cancel</span>
+        </span>
+      </div>
+        
+    </div>
+
+
+
+
+
+
+
+
+
+
+
   </div>
 
   <script type="module" src="script.js"></script>

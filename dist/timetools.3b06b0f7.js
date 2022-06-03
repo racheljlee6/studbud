@@ -505,8 +505,10 @@ function hmrAcceptRun(bundle, id) {
 },{}],"2OD7o":[function(require,module,exports) {
 //Import just as JS
 var _timetools = require("./components/timetools");
+var _tasklist = require("./components/tasklist");
+var _readinglist = require("./components/readinglist");
 
-},{"./components/timetools":"7uux5"}],"7uux5":[function(require,module,exports) {
+},{"./components/timetools":"7uux5","./components/tasklist":"5i9SJ","./components/readinglist":"iCD2W"}],"7uux5":[function(require,module,exports) {
 // STOPWATCH JS //
 //added hour to stopwatch based on user feedback
 let [secs, mins, hr] = [
@@ -560,7 +562,9 @@ const timer = {
     shortBreak: 5,
     longBreak: 30
 };
+// declared interval variable to be assigned an instance of setInterval()
 let interval;
+//event listener to call start and stop functions for pomo timer
 const startStop = document.getElementById("pomoButton");
 startStop.addEventListener("click", ()=>{
     const { action  } = startStop.dataset;
@@ -648,6 +652,163 @@ function handleMode(event) {
 // make default mode to be pomodoro and reset values
 document.addEventListener("DOMContentLoaded", ()=>{
     changeMode("pomodoro");
+});
+
+},{}],"5i9SJ":[function(require,module,exports) {
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.currentTarget.appendChild(document.getElementById(data));
+}
+function createTask() {
+    var x = document.getElementById("inprogress");
+    var y = document.getElementById("done");
+    var z = document.getElementById("create-new-task-block");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        y.style.display = "block";
+        z.style.display = "none";
+    } else {
+        x.style.display = "none";
+        y.style.display = "none";
+        z.style.display = "flex";
+    }
+}
+function saveTask() {
+    // var saveButton = document.getElementById("save-button");
+    // var editButton = document.getElementById("edit-button");
+    // if (saveButton.style.display === "none") {
+    //     saveButton.style.display = "block";
+    //     editButton.style.display = "none";
+    // } else{
+    //     saveButton.style.display = "none";
+    //     editButton.style.display = "block";
+    // }
+    var todo = document.getElementById("todo");
+    var taskName = document.getElementById("task-name").value;
+    todo.innerHTML += `
+    <div class="task" id="${taskName.toLowerCase().split(" ").join("")}" draggable="true" ondragstart="drag(event)">
+        <span>${taskName}</span>
+    </div>
+    `;
+}
+function editTask() {
+    var saveButton = document.getElementById("save-button");
+    var editButton = document.getElementById("edit-button");
+    if (saveButton.style.display === "none") {
+        saveButton.style.display = "block";
+        editButton.style.display = "none";
+    } else {
+        saveButton.style.display = "none";
+        editButton.style.display = "block";
+    }
+}
+
+},{}],"iCD2W":[function(require,module,exports) {
+// Create object through Class - represents a reference
+class Reference {
+    constructor(reference, link){
+        this.reference = reference;
+        this.link = link;
+    }
+}
+// Interface object to manage interface tasks
+class Interface {
+    static displayReferences() {
+        const references = Save.getReferences();
+        references.forEach((ref)=>Interface.addReferenceToList(ref));
+    }
+    static addReferenceToList(ref) {
+        const col = document.querySelector("#reference-list");
+        const row = document.createElement("tr");
+        row.innerHTML = `
+        <td>${ref.reference}</td>
+        <td>${ref.link}</td>
+        <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+      `;
+        col.appendChild(row);
+    }
+    static deleteReference(el) {
+        if (el.classList.contains("delete")) el.parentElement.parentElement.remove();
+    }
+    static showAlert(message, className) {
+        const div = document.createElement("div");
+        div.className = `alert alert-${className}`;
+        div.appendChild(document.createTextNode(message));
+        const container = document.querySelector(".container");
+        const form = document.querySelector("#entry-form");
+        container.insertBefore(div, form);
+        // disappear in 4 seconds
+        setTimeout(()=>document.querySelector(".alert").remove(), 4000);
+    }
+    // clear the values of the fields
+    static clearValues() {
+        document.querySelector("#reference").value = "";
+        document.querySelector("#link").value = "";
+    }
+}
+// object to save referecnces
+class Save {
+    static getReferences() {
+        let references;
+        if (localStorage.getItem("references") === null) references = [];
+        else references = JSON.parse(localStorage.getItem("references"));
+        return references;
+    }
+    // add new reference to storage
+    static createReference(ref) {
+        const references = Save.getReferences();
+        references.push(ref);
+        localStorage.setItem("references", JSON.stringify(references));
+    }
+    //remove a soecific reference from storage
+    static removeReference(link) {
+        const references = Save.getReferences();
+        // for each loop to find the one clicked on
+        references.forEach((ref, index)=>{
+            if (ref.link === link) references.splice(index, 1);
+        });
+        localStorage.setItem("references", JSON.stringify(references));
+    }
+}
+// Display on screen the references
+document.addEventListener("DOMContentLoaded", Interface.displayReferences);
+// listen for submit then add an entire reference
+document.querySelector("#entry-form").addEventListener("submit", (e)=>{
+    // Prevent an actual submit
+    e.preventDefault();
+    // let vairbles equal reference form's values
+    const reference = document.querySelector("#reference").value;
+    const link = document.querySelector("#link").value;
+    // validation methods - prevent half filled form
+    if (reference === "" || link === "") Interface.showAlert("Please fill out all required fields", "danger");
+    else {
+        // let ref = object
+        const ref = new Reference(reference, link);
+        // add new reference to interface
+        Interface.addReferenceToList(ref);
+        // create new reference to saved refs
+        Save.createReference(ref);
+        // validation method - show when ref has been created
+        Interface.showAlert("Reference Created", "success");
+        // clear values in fields
+        Interface.clearValues();
+    }
+});
+// delete reference
+document.querySelector("#reference-list").addEventListener("click", (e)=>{
+    // delete reference from interfacee
+    Interface.deleteReference(e.target);
+    // delete reference from saved
+    Save.removeReference(e.target.parentElement.previousElementSibling.textContent);
+    // validation method - show when ref has been deleted
+    Interface.showAlert("Reference Deleted", "success");
 });
 
 },{}]},["lNJce","2OD7o"], "2OD7o", "parcelRequire60da")

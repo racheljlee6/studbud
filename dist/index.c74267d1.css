@@ -302,4 +302,132 @@ img {
   }
 }
 
+body {
+  background-color: #000;
+}
+
+.container {
+  width: 70%;
+  min-width: 50%;
+  flex-direction: column;
+  margin: auto;
+  display: flex;
+}
+
+.kanban-board {
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: sans-serif;
+  display: flex;
+}
+
+.kanban-col, .create-new-task-block {
+  width: 30.5%;
+  min-width: 14rem;
+  min-height: 4.5rem;
+  border-radius: .3rem;
+  padding: .6rem;
+}
+
+#todo {
+  background-color: #fec6d1;
+}
+
+#inprogress {
+  background-color: #ffaf00;
+}
+
+#completed {
+  background-color: #018b01;
+}
+
+.task {
+  background-color: #fff;
+  border: .1rem solid #000;
+  border-radius: .2rem;
+  margin: .2rem 0 .3rem;
+  padding: .5rem .2rem .5rem 2rem;
+}
+
+#task-button {
+  width: 100%;
+  background-color: #fff;
+  border: .25rem solid #000;
+  border-radius: .3rem;
+  margin: .2rem 0 .1rem;
+  padding: .5rem 2.7rem;
+  font-size: 1rem;
+}
+
+.create-new-task-block {
+  width: 64.4%;
+  background: #ffaf00;
+  flex-direction: column;
+  display: none;
+}
+
+.form-row {
+  flex-direction: row;
+  margin: .2rem;
+  display: flex;
+}
+
+.form-row-label {
+  width: 15%;
+  border: .1rem solid #000;
+  border-right: 0;
+  border-radius: .2rem 0 0 .2rem;
+  padding: .2rem .5rem .2rem .2rem;
+}
+
+.form-row-input {
+  width: 85%;
+  border: .1rem solid #000;
+  border-radius: 0 .2rem .2rem 0;
+}
+
+textarea {
+  resize: none;
+}
+
+.form-row-buttons {
+  flex-direction: row;
+  justify-content: space-between;
+  margin: .2rem;
+  display: flex;
+}
+
+#edit-button, #save-button, #cancel-button {
+  width: 49.2%;
+  background-color: #fff;
+  border: .25rem solid #000;
+  border-radius: .3rem;
+  margin: .2rem 0 .1rem;
+  padding: .5rem 2.7rem;
+  font-size: 1rem;
+}
+
+#edit-button {
+  display: none;
+}
+
+#myInput {
+  margin: 15px 0;
+  padding: 15px 10px;
+}
+
+tr, td {
+  border: 1px solid gray !important;
+  padding: 12px !important;
+}
+
+#box {
+  float: left;
+}
+
+#add-new-books {
+  float: right;
+  width: 40%;
+}
+
 /*# sourceMappingURL=index.c74267d1.css.map */

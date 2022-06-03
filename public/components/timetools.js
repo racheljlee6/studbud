@@ -58,8 +58,10 @@ const timer = {
   //longBreakInterval: 4,
 };
 
+// declared interval variable to be assigned an instance of setInterval()
 let interval;
 
+//event listener to call start and stop functions for pomo timer
 const startStop = document.getElementById('pomoButton');
 
 startStop.addEventListener('click', () => {

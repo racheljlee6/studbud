@@ -26,9 +26,33 @@
     </ul>
   </nav>
 
-  <div id="home" class="page-container">
-      <h1>Reading List</h1>
-      <p> inSERT some text here</p>
+  <!-- <div id="reading-list" class="page-container"> -->
+  <div id="reading-list" class="container mt-4">
+    <form id="entry-form">
+      <div class="field">
+        <label for="reference">Reference Name</label>
+        <input type="text" id="reference">
+      </div>
+        
+      <div class="field">
+        <label for="link">Link</label>
+        <input type="text" id="link" >
+      </div>
+      
+      <input type="submit" value="New Reference" class="submit-btn">
+    </form>
+    
+    <table class="reference-table">
+      <thead>
+        <tr>
+          <th>Reference Name</th>
+          <th>Link</th>
+          <th></th>
+        </tr>
+      </thead>
+      
+      <tbody id="reference-list"></tbody>
+    </table>
   </div>
 
   <script type="module" src="script.js"></script>
