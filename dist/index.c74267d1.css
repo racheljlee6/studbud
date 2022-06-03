@@ -304,6 +304,55 @@ img {
   }
 }
 
+body {
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.wrapper i {
+  cursor: pointer;
+}
+
+.top-bar, .progress-area .song-timer, .controls, .music-list .header, .music-list ul li {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.img-area {
+  width: 100%;
+  height: 256px;
+  border-radius: 15px;
+  margin-top: 25px;
+  overflow: hidden;
+}
+
+.img-area img {
+  width: 100%;
+  height: 100%;
+}
+
+.progress-area {
+  height: 6px;
+  width: 100%;
+  cursor: pointer;
+  background: #ffd166;
+  border-radius: 50px;
+}
+
+.progress-area .progress-bar {
+  height: inherit;
+  width: 0%;
+  border-radius: inherit;
+  position: relative;
+}
+
+.controls {
+  margin: 40px 0 5px;
+}
+
 #task-grid {
   margin: 20px 0;
 }
@@ -318,8 +367,8 @@ img {
   display: block;
 }
 
-#task-grid #taskform input, #task-grid #taskform #priorityInput {
-  width: 300px;
+#task-grid #taskform input {
+  width: 200px;
   height: 35px;
   color: gray;
   display: block;
@@ -371,6 +420,16 @@ img {
   border-radius: 10px;
   margin: 0 10px;
   padding: 10px 20px;
+}
+
+@media screen and (max-width: 480px) {
+  #task-grid {
+    margin: 0 50px;
+  }
+
+  #task-grid p {
+    font-size: 12pt;
+  }
 }
 
 #reading-list {

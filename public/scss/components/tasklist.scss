@@ -7,8 +7,8 @@
       margin: 10px 0;
       font-weight: bold;
     }
-    input, #priorityInput {
-      width: 300px;
+    input {
+      width: 200px;
       display: block;
       height: 35px;
       color: grey;
@@ -60,4 +60,14 @@
     background-color: #E5E5E7;
 
   }
+}
+
+//responsive timetools for mobile screens
+@media screen and (max-width: 480px) {
+ #task-grid {
+   margin: 0 50;
+   p {
+    font-size: 12pt;
+  }
+ }
 }
