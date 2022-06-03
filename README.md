@@ -14,6 +14,8 @@ When creating my Pomodoro timer, I was able to ask for feedback on the   user in
 ## Iteration 3 
 Similarly with the navigation bar, a piece of feedback given was that the red from the mockup reminded students of ‘error’ and a different colour could be considered to show which tab was active and chosen. From this I chosen to use css and create an underline for the tab that the user was visiting. 
 
+### Self-Reflection
+If given the chance to improve on the assessment, I would definetely allocation more time playing around different ways of storing objects and data. I was unable to get my kanban board to fully function and would definetly continue to play around with the code and try and debug and find the cause. Additionally, I would try and include more design methods into my user testing. This time round I asked my particpants what they thought of a specific feature, however next time I would create tasks and ask them to think-aloud and complete them without my assistence to not only test the functionality but the user experience and get feedback based on that along with UI feedback.
 
 ## References
 - *A. (2022, April 08). How to build a Pomodoro Timer app with JavaScript. Retrieved May 20, 2022, from https://freshman.tech/pomodoro-timer/*
@@ -23,8 +25,8 @@ Similarly with the navigation bar, a piece of feedback given was that the red fr
 - *K. (2022, April 25). Creating a Kanban Board with HTML, CSS & JavaScript. Retrieved June 1, 2022, from https://karthikdevarticles.com/creating-a-kanban-board-with-html-css-and-javascript*
 
 
-Icons
+#### Icons
 - [Font Awesome](https://fontawesome.com/)
 
 
-Thank You :) 
+**Thank You :)**
