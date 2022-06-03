@@ -1,0 +1,75 @@
+// nav {
+//     width: 100%;
+
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: flex-start;
+//     .nav-links {
+//         list-style: none;
+//         display: flex;
+       
+//         .nav-item a {
+//             display: inline-block;
+//             text-decoration: none;
+//             color: white;
+//             padding: 1em 2em;
+//             &:hover {
+//                 background-color: #FFEBEC;
+//                 border-radius: 10px;
+//             }
+//             &.active {
+//                 background-color: #FFD166;
+//                 border-radius: 10px;
+//             }
+//         }
+//     }
+// }
+
+// nav.vertical {
+//     width: 240px;
+//     height: 100vh;
+//     flex-direction: row;
+//     position: fixed;
+//     left: 0;
+//     top: 0;
+// up to here 
+//     .nav-links {
+//         flex-direction: column;
+//         .nav-item a {
+//             display: block;
+//             padding: 1.5em auto;
+//         }
+//     }
+ 
+
+//       // added media query for responsiveness between desktop and mobile
+//       // chose 480px as most mobile screen viewport is between 320 to 480 px
+//     @media (max-width: 480px){
+//         width: 100%;
+//         height: 100px;
+//         background-color: #F9F9FB;
+//         .checkbtn{
+//             display: block;
+//         }
+//         .nav-links {
+//             // position: absolute;
+//             // width: 100%;
+//             // height: 100vh;
+//             // background: #FFFFFF;
+//             // top: 100px;
+//             // left: -100%;
+//             // text-align: center;
+//             // transition: all .4s;
+
+//             // #logo {
+//             //     margin-top: 10px;
+//             //     margin-bottom: 10px;
+//             //     padding: 1em 2em;
+//             // }
+//         }
+      
+//         #check:checked ~ ul{
+//             left: 0;
+//         }
+//     }
+// }

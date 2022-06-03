@@ -504,13 +504,10 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"2OD7o":[function(require,module,exports) {
 //Import just as JS
-var _timetools = require("./components/timetools");
 var _tasklist = require("./components/tasklist");
 var _readinglist = require("./components/readinglist");
 
-},{"./components/timetools":"7uux5","./components/tasklist":"5i9SJ","./components/readinglist":"iCD2W"}],"7uux5":[function(require,module,exports) {
-
-},{}],"5i9SJ":[function(require,module,exports) {
+},{"./components/tasklist":"5i9SJ","./components/readinglist":"iCD2W"}],"5i9SJ":[function(require,module,exports) {
 
 },{}],"iCD2W":[function(require,module,exports) {
 // Create object through Class - represents a reference

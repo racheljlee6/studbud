@@ -33,83 +33,48 @@
 
     <div class="kanban-board">
       <h2>Kanban Board</h2>
-
-      <!-- to-do list -->
-      <div class="kanban-col" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <h3>TO DO</h3>
       
-        <div class="task-button-block">
-          <button id="task-button" onclick="createTask()">Create new task
-        </button></div>
-          
-        <div class="task" id="task1" draggable="true" ondragstart="drag(event)">
-        <span>Task 1</span>
-        </div>
+      <div id="task-grid">
+        <form id="taskform">
+            <label for="task">Task:</label>
+            <input type="text" name="task" id="taskInput" required="">
 
-        <div class="task" id="task2" draggable="true" ondragstart="drag(event)">
-        <span>Task 2</span>
-        </div>
+            <!-- Date input -->
+            <label for="dueDate">Due Date: </label>
+            <input type="date" name="dueDate" id="dueDateInput">
 
-        <div class="task" id="task3" draggable="true" ondragstart="drag(event)">
-        <span>Task 3</span>
+            <!-- Time input -->
+            <label for="completionTime">Completion Time: </label>
+            <input type="time" name="completionTime" id="completionTimeInput">
+
+            <label for="estimatedTime">Estimated completion time (in mins):</label>
+            <input type="number" name="estimatedTime" id="estimatedTimeInput">
+            <!-- Priority -->
+
+
+            <label for="priority">Task Priority:</label>
+            <select name="prority" id="priorityInput">
+                <option value="">Select one</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+
+            <br>
+
+            <button type="submit">Submit</button>
+        </form>
+        <div id="tasklist">
+            <p id="emptyList">You have not added any tasks yet.</p>
+            <ul></ul>
         </div>
       </div>
-
-      <!-- in progress -->
-      <div class="kanban-col" id="inprogress" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <h3>In Progress</h3>
-      </div>
-
-      <!-- Completed -->
-      <div class="kanban-col" id="completed" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <h3>Completed</h3>
-      </div>
-
-      <!-- Create new task -->
-      <div class="create-new-task-block" id="create-new-task-block">
-        <h3>New Task</h3>
-
-        <span class="form-row">
-          <label class="form-row-label" for="task-name">Task</label>
-          <input class="form-row-input" type="text" name="task-name" id="task-name">
-        </span>
-        
-        <span class="form-row">
-          <label class="form-row-label" for="task-name">Description</label>
-          <textarea class="form-row-input" name="task-description" id="task-description" cols="70" rows="10"></textarea>
-        </span>
-
-        <span class="form-row">
-          <label class="form-row-label" for="task-name">Status</label>
-          <select class="form-row-input" name="task-status" id="task-status">
-          <option value="todo">To Do</option>
-          <option value="inprogress">In Progress</option>
-          <option value="done">Done</option>
-          </select>
-        </span>
-
-        <span class="form-row-buttons">
-          <button id="edit-button" onclick="editTask()">Edit</button></span>
-          <button id="save-button" onclick="saveTask()">Save
-          </button><button id="cancel-button" onclick="createTask()">Cancel
-        
-      </button></div>
-        
-    </div>
-
-
-
-
-
-
-
-
-
-
+   
+    </div>    
 
   </div>
 
-  <script src="/timetools.3b06b0f7.js" defer=""></script>
+  <script src="/readinglist.3b06b0f7.js" defer=""></script>
 </body>
 
 </html>
