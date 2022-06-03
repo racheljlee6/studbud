@@ -1,7 +1,21 @@
-## StudBud - DECO2017 A3
-## Created by Rachel Lee
+# **StudBud - DECO2017 A3**
+### **Created by Rachel Lee**
 
-References
+## Iteration 1
+I started by creating the timer tools, specifically the stopwatch and Pomodoro timer. After an initial javascript draft of the stopwatch I was able to test on three users studying similar degrees as my personas. I allowed them to interact with the feature and give feedback based on their interactions. All three participant gave similar feedback outlining the need for milliseconds to be shown on the screen as they said most students would use a stopwatch to time tests and mimic test conditions. I was able to iterate and include the additional measurement.
+
+## Iternation 2 
+When creating my Pomodoro timer, I was able to ask for feedback on the   user interface. I showed different participants the mockups and asked for feedback. The two main pieces of feedback I received were to consider spreading out buttons for the mobile version and to create hover states so they know which buttons are pressable. I was able to iterate my app by first adding css for hover states as well as removing the tabs and placing both features on the same page so it is easily able to be scrolled for the users on mobile.
+
+![App Mockup](public/images/mockups.png "App Mockup") 
+
+![Web App](public/images/webapplication.png "Web App") 
+
+## Iteration 3 
+Similarly with the navigation bar, a piece of feedback given was that the red from the mockup reminded students of ‘error’ and a different colour could be considered to show which tab was active and chosen. From this I chosen to use css and create an underline for the tab that the user was visiting. 
+
+
+## References
 - *A. (2022, April 08). How to build a Pomodoro Timer app with JavaScript. Retrieved May 20, 2022, from https://freshman.tech/pomodoro-timer/*
 - *A. (2022, April 08). How to build a Pomodoro Timer app with JavaScript. Retrieved May 20, 2022, from https://freshman.tech/pomodoro-timer/%*
 - *Oliveira, M. (n.d.). Book list - codepen. Retrieved June 1, 2022, from https://codepen.io/mateusmlo/pen/JZKbar*
@@ -13,5 +27,4 @@ Icons
 - [Font Awesome](https://fontawesome.com/)
 
 
-
-Thank You!
+Thank You :) 
